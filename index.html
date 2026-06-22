@@ -326,6 +326,241 @@
             font-size: 0.9rem;
             line-height: 1.4;
         }
+
+        /* Artifact Selector */
+        .artifact-selector {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.6rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .artifact-option {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.8rem 0.3rem;
+            border: 1px solid var(--glass-border);
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-height: 80px;
+            justify-content: center;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .artifact-option:hover,
+        .artifact-option.selected {
+            border-color: var(--metallic-gold);
+            background: rgba(197, 160, 89, 0.15);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(197, 160, 89, 0.2);
+        }
+
+        .artifact-option.selected::after {
+            content: '✓';
+            position: absolute;
+            top: 4px;
+            right: 6px;
+            color: var(--metallic-gold);
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .artifact-option {
+            position: relative;
+        }
+
+        .artifact-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        .artifact-option span {
+            font-size: 0.75rem;
+            color: var(--text-light);
+        }
+
+        /* Artifact Detail Modal */
+        .artifact-detail-content {
+            max-width: 440px;
+            padding: 2rem;
+        }
+
+        .artifact-detail-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.2rem;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .artifact-detail-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            flex-shrink: 0;
+        }
+
+        .artifact-detail-type {
+            color: var(--metallic-gold);
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+            margin: 0 0 0.2rem 0;
+        }
+
+        .artifact-detail-linked {
+            font-size: 0.8rem;
+            color: #888;
+            margin: 0;
+        }
+
+        .artifact-detail-body {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .artifact-detail-photo {
+            width: 100%;
+            max-height: 260px;
+            object-fit: cover;
+            border-radius: 8px;
+            background: #111;
+            border: 1px solid var(--glass-border);
+        }
+
+        .artifact-section {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 2px solid var(--metallic-gold);
+        }
+
+        .artifact-section-label {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--metallic-gold);
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .artifact-section-content {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            white-space: pre-wrap;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .ui-layer {
+                padding: 1rem;
+            }
+
+            .title-block h1 {
+                font-size: 1.3rem;
+            }
+
+            .controls .btn {
+                padding: 0.6rem 1rem;
+                font-size: 0.7rem;
+            }
+
+            .artifact-selector {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.5rem;
+            }
+
+            .artifact-option {
+                min-height: 72px;
+                padding: 0.7rem 0.2rem;
+            }
+
+            .artifact-icon {
+                width: 36px;
+                height: 36px;
+                font-size: 1.1rem;
+            }
+
+            .artifact-option span {
+                font-size: 0.7rem;
+            }
+
+            .modal-content {
+                padding: 1.5rem;
+                margin: 1rem;
+                max-height: 85vh;
+                overflow-y: auto;
+            }
+
+            .artifact-detail-content {
+                padding: 1.5rem;
+            }
+
+            .artifact-detail-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .artifact-detail-type {
+                font-size: 1.2rem;
+            }
+
+            .status-panel {
+                max-width: 200px;
+                padding: 0.7rem;
+            }
+
+            .event-card {
+                width: calc(100% - 2rem);
+                bottom: 1rem;
+                left: 1rem;
+                right: 1rem;
+                transform: translateY(20px) translateX(0);
+            }
+
+            .event-card.active {
+                transform: translateY(0) translateX(0);
+            }
+
+            .interaction-guide p {
+                font-size: 0.7rem;
+                line-height: 1.5;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .controls {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .artifact-selector {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
     </style>
     <!-- Import Maps for Three.js ES Modules -->
     <script type="importmap">
@@ -413,19 +648,104 @@
                     <label>描述</label>
                     <textarea id="event-desc" rows="3" placeholder="这一刻发生了什么..."></textarea>
                 </div>
+
+                <div class="form-group" style="border-top: 1px solid var(--glass-border); padding-top: 1.5rem;">
+                    <label style="display: flex; align-items: center; gap: 0.5rem;">
+                        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                        </svg>
+                        绑定重要物件（可选）
+                    </label>
+                    <p style="font-size: 0.75rem; color: #888; margin-bottom: 1rem;">选择一件承载这段记忆的实体物件</p>
+
+                    <div class="artifact-selector" id="artifact-selector">
+                        <div class="artifact-option" data-type="diploma">
+                            <div class="artifact-icon" style="background: linear-gradient(135deg, #C5A059, #8B7332);">🎓</div>
+                            <span>毕业证</span>
+                        </div>
+                        <div class="artifact-option" data-type="ticket">
+                            <div class="artifact-icon" style="background: linear-gradient(135deg, #D2691E, #8B4513);">🎫</div>
+                            <span>老车票</span>
+                        </div>
+                        <div class="artifact-option" data-type="key">
+                            <div class="artifact-icon" style="background: linear-gradient(135deg, #B8860B, #6B5300);">🔑</div>
+                            <span>钥匙</span>
+                        </div>
+                        <div class="artifact-option" data-type="letter">
+                            <div class="artifact-icon" style="background: linear-gradient(135deg, #F5F5DC, #A0926D); color: #333;">✉️</div>
+                            <span>手写信</span>
+                        </div>
+                    </div>
+                    <input type="hidden" id="selected-artifact-type" value="">
+
+                    <div id="artifact-detail-fields" style="display: none; margin-top: 1.2rem; padding: 1rem; background: rgba(0,0,0,0.3); border-radius: 6px;">
+                        <div class="form-group" style="margin-bottom: 1rem;">
+                            <label>物件照片</label>
+                            <input type="file" id="artifact-photo" accept="image/*">
+                        </div>
+                        <div class="form-group" style="margin-bottom: 1rem;">
+                            <label>物件背后的故事</label>
+                            <textarea id="artifact-story" rows="2" placeholder="关于这件物件，你记得什么..."></textarea>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label>保存地点</label>
+                            <input type="text" id="artifact-location" placeholder="例如：书桌抽屉第二层 / 老家衣柜顶层">
+                        </div>
+                    </div>
+                </div>
+
                 <button type="submit" class="submit-btn" id="submit-btn">注入银河</button>
             </form>
+        </div>
+    </div>
+
+    <!-- Artifact Detail Modal -->
+    <div class="modal artifact-modal" id="artifact-modal">
+        <div class="modal-content artifact-detail-content">
+            <span class="close-modal" id="close-artifact-modal">&times;</span>
+            <div class="artifact-detail-header">
+                <div class="artifact-detail-icon" id="artifact-detail-icon">🎓</div>
+                <div>
+                    <h2 class="artifact-detail-type" id="artifact-detail-type">毕业证</h2>
+                    <p class="artifact-detail-linked" id="artifact-detail-linked">关联记忆：毕业那天</p>
+                </div>
+            </div>
+            <div class="artifact-detail-body">
+                <img class="artifact-detail-photo" id="artifact-detail-photo" style="display: none;">
+                <div class="artifact-section">
+                    <div class="artifact-section-label">
+                        <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+                        </svg>
+                        故事
+                    </div>
+                    <p class="artifact-section-content" id="artifact-detail-story">—</p>
+                </div>
+                <div class="artifact-section">
+                    <div class="artifact-section-label">
+                        <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                        保存地点
+                    </div>
+                    <p class="artifact-section-content" id="artifact-detail-location">—</p>
+                </div>
+            </div>
         </div>
     </div>
 
     <!-- Event Detail Card -->
     <div class="event-card" id="event-card">
         <img class="event-media" id="card-img" style="display:none;">
-        <!-- Removed empty src to prevent browser errors -->
         <video class="event-media" id="card-video" controls loop style="display:none;"></video>
         <h3 class="event-title" id="card-title">Event Title</h3>
         <p class="event-date" id="card-date">2023.01.01</p>
         <p class="event-desc" id="card-desc">Event description goes here.</p>
+        <div class="event-artifacts" id="card-artifacts" style="display: none; margin-top: 0.8rem; padding-top: 0.8rem; border-top: 1px solid var(--glass-border);">
+            <div style="font-size: 0.8rem; color: var(--metallic-gold); margin-bottom: 0.5rem;">📦 绑定的重要物件</div>
+            <div id="card-artifact-list" style="display: flex; gap: 0.5rem; flex-wrap: wrap;"></div>
+        </div>
     </div>
 
     <script type="module">
@@ -448,12 +768,48 @@
             }
         };
 
+        const ARTIFACT_TYPES = {
+            diploma: {
+                name: '毕业证',
+                emoji: '🎓',
+                color: 0xC5A059,
+                bgColor: '#C5A059',
+                shape: 'box',
+                glow: 0xFFD700
+            },
+            ticket: {
+                name: '老车票',
+                emoji: '🎫',
+                color: 0xD2691E,
+                bgColor: '#D2691E',
+                shape: 'plane',
+                glow: 0xFF8C00
+            },
+            key: {
+                name: '钥匙',
+                emoji: '🔑',
+                color: 0xB8860B,
+                bgColor: '#B8860B',
+                shape: 'torus',
+                glow: 0xFFD700
+            },
+            letter: {
+                name: '手写信',
+                emoji: '✉️',
+                color: 0xF5DEB3,
+                bgColor: '#F5F5DC',
+                shape: 'tetra',
+                glow: 0xFFE4B5
+            }
+        };
+
         const STATE = {
             isFlowing: true,
             speed: 0.2,
             targetSpeed: 0.2,
             interactionMode: 'none', // none, rotate, zoom
             events: [],
+            artifacts: [],
             handPresent: false
         };
 
@@ -605,30 +961,209 @@
         const eventGroup = new THREE.Group();
         scene.add(eventGroup);
 
-        function addLifeEventToGalaxy(data, dominatColor) {
-            // Calculate a position on the outer edge or next "step" of the spiral
-            // For simplicity, we place them randomly on an imaginary timeline (radius)
-            // Ideally, time = radius distance from center.
+        // --- ARTIFACTS (Important Objects orbiting events) ---
+        const artifactGroup = new THREE.Group();
+        scene.add(artifactGroup);
 
+        function createArtifactMesh(type) {
+            const config = ARTIFACT_TYPES[type];
+            if (!config) return null;
+
+            const pivot = new THREE.Group();
+            const group = new THREE.Group();
+
+            let coreMesh;
+            switch (config.shape) {
+                case 'box':
+                    coreMesh = new THREE.Mesh(
+                        new THREE.BoxGeometry(1.1, 0.15, 1.4, 1, 1, 1),
+                        new THREE.MeshBasicMaterial({
+                            color: config.color,
+                            toneMapped: false,
+                            transparent: true,
+                            opacity: 0.95
+                        })
+                    );
+                    const ribbon = new THREE.Mesh(
+                        new THREE.BoxGeometry(0.3, 0.25, 1.6, 1, 1, 1),
+                        new THREE.MeshBasicMaterial({
+                            color: 0x8B0000,
+                            toneMapped: false
+                        })
+                    );
+                    ribbon.position.y = 0.1;
+                    coreMesh.add(ribbon);
+                    break;
+
+                case 'plane':
+                    coreMesh = new THREE.Mesh(
+                        new THREE.BoxGeometry(1.6, 0.08, 0.7, 1, 1, 1),
+                        new THREE.MeshBasicMaterial({
+                            color: config.color,
+                            toneMapped: false,
+                            transparent: true,
+                            opacity: 0.95
+                        })
+                    );
+                    const notch = new THREE.Mesh(
+                        new THREE.CylinderGeometry(0.12, 0.12, 0.1, 16),
+                        new THREE.MeshBasicMaterial({
+                            color: 0x05070A,
+                            toneMapped: false
+                        })
+                    );
+                    notch.rotation.x = Math.PI / 2;
+                    notch.position.set(0.55, 0.05, 0);
+                    coreMesh.add(notch);
+                    const notch2 = notch.clone();
+                    notch2.position.set(-0.55, 0.05, 0);
+                    coreMesh.add(notch2);
+                    break;
+
+                case 'torus':
+                    coreMesh = new THREE.Group();
+                    const ringKey = new THREE.Mesh(
+                        new THREE.TorusGeometry(0.45, 0.14, 12, 32),
+                        new THREE.MeshBasicMaterial({
+                            color: config.color,
+                            toneMapped: false,
+                            transparent: true,
+                            opacity: 0.95
+                        })
+                    );
+                    ringKey.rotation.x = Math.PI / 2;
+                    coreMesh.add(ringKey);
+                    const shaft = new THREE.Mesh(
+                        new THREE.BoxGeometry(1.0, 0.12, 0.12, 1, 1, 1),
+                        new THREE.MeshBasicMaterial({
+                            color: config.color,
+                            toneMapped: false
+                        })
+                    );
+                    shaft.position.x = 0.9;
+                    coreMesh.add(shaft);
+                    const teeth1 = new THREE.Mesh(
+                        new THREE.BoxGeometry(0.15, 0.25, 0.12),
+                        new THREE.MeshBasicMaterial({
+                            color: config.color,
+                            toneMapped: false
+                        })
+                    );
+                    teeth1.position.set(1.3, -0.18, 0);
+                    coreMesh.add(teeth1);
+                    const teeth2 = teeth1.clone();
+                    teeth2.position.set(1.1, -0.18, 0);
+                    coreMesh.add(teeth2);
+                    break;
+
+                case 'tetra':
+                default:
+                    coreMesh = new THREE.Mesh(
+                        new THREE.TetrahedronGeometry(0.85, 0),
+                        new THREE.MeshBasicMaterial({
+                            color: config.color,
+                            toneMapped: false,
+                            transparent: true,
+                            opacity: 0.95
+                        })
+                    );
+                    const seal = new THREE.Mesh(
+                        new THREE.CircleGeometry(0.25, 16),
+                        new THREE.MeshBasicMaterial({
+                            color: 0x8B0000,
+                            toneMapped: false,
+                            side: THREE.DoubleSide
+                        })
+                    );
+                    seal.position.set(0, -0.3, 0.7);
+                    coreMesh.add(seal);
+                    break;
+            }
+
+            group.add(coreMesh);
+
+            const haloGeo = new THREE.RingGeometry(1.1, 1.25, 32);
+            const haloMat = new THREE.MeshBasicMaterial({
+                color: config.glow,
+                side: THREE.DoubleSide,
+                transparent: true,
+                opacity: 0.4,
+                toneMapped: false
+            });
+            const halo = new THREE.Mesh(haloGeo, haloMat);
+            halo.lookAt(camera.position);
+            group.add(halo);
+
+            const hitGeo = new THREE.SphereGeometry(2.4, 16, 16);
+            const hitMat = new THREE.MeshBasicMaterial({
+                color: 0x000000,
+                transparent: true,
+                opacity: 0.0,
+                depthWrite: false
+            });
+            const hitBox = new THREE.Mesh(hitGeo, hitMat);
+            hitBox.userData._isHitBox = true;
+            group.add(hitBox);
+
+            pivot.userData = {
+                isArtifact: true,
+                config: config,
+                halo: halo,
+                core: coreMesh,
+                orbitAngle: 0,
+                orbitSpeed: 0.3 + Math.random() * 0.2,
+                orbitRadius: 5.5,
+                orbitTilt: (Math.random() - 0.5) * 0.6,
+                bobOffset: Math.random() * Math.PI * 2,
+                type: type
+            };
+
+            pivot.add(group);
+            return pivot;
+        }
+
+        function addArtifactsToEvent(star, eventData, artifacts) {
+            if (!artifacts || artifacts.length === 0) return;
+
+            const starPos = star.position.clone();
+            const count = artifacts.length;
+
+            artifacts.forEach((artifactData, index) => {
+                const mesh = createArtifactMesh(artifactData.type);
+                if (!mesh) return;
+
+                const angleOffset = (index / count) * Math.PI * 2;
+                mesh.userData.orbitAngle = angleOffset;
+                mesh.userData.starRef = star;
+                mesh.userData.artifactData = artifactData;
+                mesh.userData.eventData = eventData;
+
+                mesh.position.copy(starPos);
+
+                mesh.userData.hitTarget = mesh.children[0].children[mesh.children[0].children.length - 1];
+
+                artifactGroup.add(mesh);
+                STATE.artifacts.push(mesh);
+            });
+        }
+
+        function addLifeEventToGalaxy(data, dominatColor, artifacts) {
             const count = STATE.events.length;
-            const radius = 10 + (count * 5); // Growing outwards
-            const angle = count * 0.5; // Spiral out
+            const radius = 10 + (count * 5);
+            const angle = count * 0.5;
 
             const x = Math.cos(angle) * radius;
             const z = Math.sin(angle) * radius;
             const y = (Math.random() - 0.5) * 5;
 
-            // Create a "Star" mesh - Increased Radius to 2.5
             const starGeo = new THREE.SphereGeometry(2.5, 32, 32);
             const starMat = new THREE.MeshBasicMaterial({
                 color: dominatColor || 0xFFFFFF,
                 toneMapped: false
             });
-            // toneMapped false lets it glow very bright with bloom
             const star = new THREE.Mesh(starGeo, starMat);
             star.position.set(x, y, z);
 
-            // Add a "Halo" Ring
             const ringGeo = new THREE.RingGeometry(3.0, 3.2, 32);
             const ringMat = new THREE.MeshBasicMaterial({
                 color: dominatColor || 0xFFFFFF,
@@ -638,41 +1173,79 @@
                 toneMapped: false
             });
             const ring = new THREE.Mesh(ringGeo, ringMat);
-            ring.lookAt(0, 0, 0); // Face center roughly
+            ring.lookAt(0, 0, 0);
             star.add(ring);
 
-            // Add Light
             const light = new THREE.PointLight(dominatColor || 0xFFFFFF, 5, 40);
             light.position.set(x, y, z);
             scene.add(light);
 
-            star.userData = { isEvent: true, data: data, ring: ring };
+            star.userData = { isEvent: true, data: data, ring: ring, light: light };
             eventGroup.add(star);
 
-            // Camera focus animation could go here
+            if (artifacts && artifacts.length > 0) {
+                addArtifactsToEvent(star, data, artifacts);
+            }
+
             return star;
         }
 
         // Raycasting for interactions
         const raycaster = new THREE.Raycaster();
         const mouse = new THREE.Vector2();
+        let selectedArtifact = null;
 
-        window.addEventListener('click', (event) => {
-            mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-            mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+        function handlePointerEvent(clientX, clientY) {
+            mouse.x = (clientX / window.innerWidth) * 2 - 1;
+            mouse.y = -(clientY / window.innerHeight) * 2 + 1;
 
             raycaster.setFromCamera(mouse, camera);
-            const intersects = raycaster.intersectObjects(eventGroup.children);
 
-            if (intersects.length > 0) {
-                const obj = intersects[0].object;
-                if (obj.userData.isEvent) {
-                    showEventCard(obj.userData.data);
+            const allArtifacts = [];
+            artifactGroup.traverse(obj => {
+                if (obj.isMesh) allArtifacts.push(obj);
+            });
+
+            const artifactIntersects = raycaster.intersectObjects(allArtifacts, false);
+            for (let hit of artifactIntersects) {
+                let node = hit.object;
+                while (node && !node.userData?.isArtifact) {
+                    node = node.parent;
                 }
-            } else {
-                hideEventCard();
+                if (node && node.userData?.isArtifact) {
+                    const showFn = window.showArtifactModal || showArtifactModal;
+                    if (showFn) showFn(node.userData.artifactData, node.userData.eventData);
+                    pulseArtifact(node);
+                    return;
+                }
             }
+
+            const eventIntersects = raycaster.intersectObjects(eventGroup.children, true);
+            if (eventIntersects.length > 0) {
+                let node = eventIntersects[0].object;
+                while (node && !node.userData?.isEvent) {
+                    node = node.parent;
+                }
+                if (node && node.userData?.isEvent) {
+                    showEventCard(node.userData.data);
+                    return;
+                }
+            }
+
+            hideEventCard();
+            hideArtifactModal();
+        }
+
+        window.addEventListener('click', (event) => {
+            handlePointerEvent(event.clientX, event.clientY);
         });
+
+        window.addEventListener('touchstart', (event) => {
+            if (event.touches.length > 0) {
+                const touch = event.touches[0];
+                handlePointerEvent(touch.clientX, touch.clientY);
+            }
+        }, { passive: true });
 
         // --- MEDIAPIPE HANDS SETUP ---
         const videoElement = document.querySelector('.input_video');
@@ -806,8 +1379,57 @@
                 }
             });
 
+            // Animate Artifacts (orbit, pulse, rotation)
+            STATE.artifacts.forEach(artifact => {
+                const uData = artifact.userData;
+                const starRef = uData.starRef;
+
+                if (starRef) {
+                    uData.orbitAngle += uData.orbitSpeed * STATE.speed * 0.008;
+
+                    const orbitX = Math.cos(uData.orbitAngle) * uData.orbitRadius;
+                    const orbitZ = Math.sin(uData.orbitAngle) * uData.orbitRadius;
+                    const orbitY = Math.sin(uData.orbitAngle * 2 + uData.bobOffset) * 1.2 + uData.orbitTilt * uData.orbitRadius * 0.3;
+
+                    artifact.position.set(
+                        starRef.position.x + orbitX,
+                        starRef.position.y + orbitY,
+                        starRef.position.z + orbitZ
+                    );
+
+                    artifact.lookAt(camera.position);
+                }
+
+                if (uData.core) {
+                    uData.core.rotation.y += 0.02;
+                    uData.core.rotation.x += 0.008;
+                }
+
+                if (uData.halo) {
+                    const pulse = 0.35 + Math.sin(elapsedTime * 3 + uData.bobOffset) * 0.15;
+                    uData.halo.material.opacity = pulse;
+                    uData.halo.lookAt(camera.position);
+                }
+
+                if (uData.pulseScale && uData.pulseScale > 1) {
+                    uData.pulseScale += (1 - uData.pulseScale) * 0.08;
+                    artifact.children[0].scale.setScalar(uData.pulseScale);
+                }
+            });
+
             controls.update();
             composer.render();
+        }
+
+        function pulseArtifact(artifact) {
+            const uData = artifact.userData;
+            uData.pulseScale = 1.6;
+            if (uData.core && uData.core.material) {
+                const origColor = uData.core.material.color?.getHex();
+                if (uData.halo) {
+                    uData.halo.material.opacity = 0.9;
+                }
+            }
         }
 
         animate();
@@ -818,6 +1440,68 @@
         const closeModal = document.getElementById('close-modal');
         const form = document.getElementById('event-form');
 
+        // Artifact Selector UI
+        const artifactOptions = document.querySelectorAll('.artifact-option');
+        const selectedArtifactTypeInput = document.getElementById('selected-artifact-type');
+        const artifactDetailFields = document.getElementById('artifact-detail-fields');
+
+        artifactOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                const type = option.dataset.type;
+                const isSelected = option.classList.contains('selected');
+
+                artifactOptions.forEach(o => o.classList.remove('selected'));
+
+                if (isSelected) {
+                    selectedArtifactTypeInput.value = '';
+                    artifactDetailFields.style.display = 'none';
+                } else {
+                    option.classList.add('selected');
+                    selectedArtifactTypeInput.value = type;
+                    artifactDetailFields.style.display = 'block';
+                }
+            });
+        });
+
+        // Artifact Detail Modal
+        const artifactModal = document.getElementById('artifact-modal');
+        const closeArtifactModal = document.getElementById('close-artifact-modal');
+
+        function showArtifactModal(artifactData, eventData) {
+            if (!artifactData) return;
+
+            const config = ARTIFACT_TYPES[artifactData.type];
+            if (!config) return;
+
+            document.getElementById('artifact-detail-icon').textContent = config.emoji;
+            document.getElementById('artifact-detail-icon').style.background = `linear-gradient(135deg, ${config.bgColor}, #333)`;
+            document.getElementById('artifact-detail-type').textContent = config.name;
+            document.getElementById('artifact-detail-linked').textContent = `关联记忆：${eventData?.title || '未命名'}`;
+
+            const photoEl = document.getElementById('artifact-detail-photo');
+            if (artifactData.photoSrc) {
+                photoEl.src = artifactData.photoSrc;
+                photoEl.style.display = 'block';
+            } else {
+                photoEl.style.display = 'none';
+                photoEl.removeAttribute('src');
+            }
+
+            document.getElementById('artifact-detail-story').textContent = artifactData.story || '—';
+            document.getElementById('artifact-detail-location').textContent = artifactData.location || '—';
+
+            artifactModal.classList.add('active');
+        }
+
+        function hideArtifactModal() {
+            artifactModal.classList.remove('active');
+        }
+
+        closeArtifactModal.addEventListener('click', hideArtifactModal);
+        window.addEventListener('click', (e) => {
+            if (e.target === artifactModal) hideArtifactModal();
+        });
+
         addBtn.addEventListener('click', () => {
             modal.classList.add('active');
         });
@@ -827,7 +1511,9 @@
         });
 
         window.addEventListener('click', (e) => {
-            if (e.target === modal) modal.classList.remove('active');
+            if (e.target === modal) {
+                modal.classList.remove('active');
+            }
         });
 
         // Feature Extraction: Average center area and boost brightness
@@ -901,39 +1587,59 @@
             const desc = document.getElementById('event-desc').value;
             const fileInput = document.getElementById('event-file');
 
+            const artifactType = document.getElementById('selected-artifact-type').value;
+            let artifactList = null;
+
+            if (artifactType && ARTIFACT_TYPES[artifactType]) {
+                const artifactPhotoInput = document.getElementById('artifact-photo');
+                const artifactStory = document.getElementById('artifact-story').value.trim();
+                const artifactLocation = document.getElementById('artifact-location').value.trim();
+
+                let artifactPhotoSrc = null;
+                if (artifactPhotoInput.files && artifactPhotoInput.files[0]) {
+                    artifactPhotoSrc = URL.createObjectURL(artifactPhotoInput.files[0]);
+                }
+
+                artifactList = [{
+                    type: artifactType,
+                    photoSrc: artifactPhotoSrc,
+                    story: artifactStory,
+                    location: artifactLocation
+                }];
+            }
+
             if (fileInput.files && fileInput.files[0]) {
                 const file = fileInput.files[0];
                 const isVideo = file.type.startsWith('video');
-                // Use ObjectURL for better performance (especially for videos)
                 const mediaSrc = URL.createObjectURL(file);
 
                 const data = {
                     title, date, desc,
                     mediaType: isVideo ? 'video' : 'image',
-                    src: mediaSrc
+                    src: mediaSrc,
+                    artifacts: artifactList
                 };
 
-                if (isVideo) {
-                    // For video, use a distinct Neon Cyan color to contrast
-                    addLifeEventToGalaxy(data, new THREE.Color('#00F0FF'));
+                const finalizeAdd = (color) => {
+                    addLifeEventToGalaxy(data, color, artifactList);
                     STATE.events.push(data);
 
                     modal.classList.remove('active');
                     btn.innerText = "注入银河";
                     form.reset();
+                    selectedArtifactTypeInput.value = '';
+                    artifactDetailFields.style.display = 'none';
+                    artifactOptions.forEach(o => o.classList.remove('selected'));
+                };
+
+                if (isVideo) {
+                    finalizeAdd(new THREE.Color('#00F0FF'));
                 } else {
-                    // For image, we extract color
                     const img = new Image();
                     img.src = mediaSrc;
                     img.onload = () => {
                         const color = extractColor(img);
-
-                        addLifeEventToGalaxy(data, new THREE.Color(color));
-                        STATE.events.push(data);
-
-                        modal.classList.remove('active');
-                        btn.innerText = "注入银河";
-                        form.reset();
+                        finalizeAdd(new THREE.Color(color));
                     };
                 }
             }
@@ -953,14 +1659,49 @@
                 img.style.display = 'block';
                 vid.style.display = 'none';
                 vid.pause();
-                vid.src = ""; // Unload video
+                vid.src = "";
             } else {
                 img.style.display = 'none';
                 vid.src = data.src;
                 vid.style.display = 'block';
-                // Explicitly call load and play
                 vid.load();
                 vid.play().catch(e => console.warn("Auto-play blocked:", e));
+            }
+
+            const artifactSection = document.getElementById('card-artifacts');
+            const artifactListEl = document.getElementById('card-artifact-list');
+            artifactListEl.innerHTML = '';
+
+            if (data.artifacts && data.artifacts.length > 0) {
+                artifactSection.style.display = 'block';
+                data.artifacts.forEach(art => {
+                    const config = ARTIFACT_TYPES[art.type];
+                    if (!config) return;
+                    const chip = document.createElement('div');
+                    chip.style.cssText = `
+                        display: flex; align-items: center; gap: 0.35rem;
+                        padding: 0.35rem 0.7rem; background: rgba(197, 160, 89, 0.15);
+                        border: 1px solid rgba(197, 160, 89, 0.4); border-radius: 20px;
+                        font-size: 0.78rem; cursor: pointer; transition: all 0.2s;
+                        -webkit-tap-highlight-color: transparent; min-height: 32px;
+                    `;
+                    chip.innerHTML = `<span style="font-size: 1rem;">${config.emoji}</span><span style="color: var(--text-light);">${config.name}</span>`;
+                    chip.addEventListener('mouseenter', () => {
+                        chip.style.background = 'rgba(197, 160, 89, 0.3)';
+                        chip.style.transform = 'translateY(-1px)';
+                    });
+                    chip.addEventListener('mouseleave', () => {
+                        chip.style.background = 'rgba(197, 160, 89, 0.15)';
+                        chip.style.transform = 'translateY(0)';
+                    });
+                    chip.addEventListener('click', (ev) => {
+                        ev.stopPropagation();
+                        showArtifactModal(art, data);
+                    });
+                    artifactListEl.appendChild(chip);
+                });
+            } else {
+                artifactSection.style.display = 'none';
             }
 
             card.classList.add('active');
@@ -980,6 +1721,283 @@
             composer.setSize(window.innerWidth, window.innerHeight);
         });
 
+        // Expose APIs to global scope so UI can work even if module partially failed,
+        // and so separate non-module scripts can call these functions.
+        window.__LifeGalaxy = {
+            THREE: THREE,
+            addLifeEvent: addLifeEventToGalaxy,
+            extractColor: extractColor,
+            showArtifact: showArtifactModal,
+            showEventCard: showEventCard,
+            hideEventCard: hideEventCard,
+            STATE: STATE,
+            isReady: true
+        };
+
+        // Fire custom event to notify DOM scripts that 3D engine is ready
+        document.dispatchEvent(new CustomEvent('galaxy-ready', {
+            detail: { ok: true }
+        }));
+
+    </script>
+
+    <script>
+    (function() {
+        // Pure DOM logic: works independently of Three.js loading
+        document.addEventListener('DOMContentLoaded', init);
+        // Also run init immediately in case DOMContentLoaded already fired
+        if (document.readyState !== 'loading') init();
+
+        // --- Global state for DOM layer ---
+        let galaxyReady = false;
+        let galaxyAPI = null;
+
+        document.addEventListener('galaxy-ready', (e) => {
+            galaxyReady = true;
+            galaxyAPI = window.__LifeGalaxy;
+        });
+
+        // Fallback: if module script failed, still enable DOM interactions
+        setTimeout(() => {
+            if (!galaxyReady && window.__LifeGalaxy) {
+                galaxyReady = true;
+                galaxyAPI = window.__LifeGalaxy;
+            }
+        }, 1500);
+
+        function init() {
+            setupAddEventModal();
+            setupArtifactSelector();
+            setupArtifactModal();
+            setupFormSubmit();
+            setupArtifactModalShow();
+        }
+
+        function setupAddEventModal() {
+            const addBtn = document.getElementById('add-event-btn');
+            const modal = document.getElementById('add-modal');
+            const closeModal = document.getElementById('close-modal');
+            if (!addBtn || !modal) return;
+
+            addBtn.addEventListener('click', () => {
+                modal.classList.add('active');
+            });
+            closeModal.addEventListener('click', () => {
+                modal.classList.remove('active');
+            });
+            window.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                }
+            });
+        }
+
+        function setupArtifactSelector() {
+            const artifactOptions = document.querySelectorAll('.artifact-option');
+            const selectedArtifactTypeInput = document.getElementById('selected-artifact-type');
+            const artifactDetailFields = document.getElementById('artifact-detail-fields');
+            if (!artifactOptions.length) return;
+
+            artifactOptions.forEach(option => {
+                option.addEventListener('click', () => {
+                    const type = option.dataset.type;
+                    const isSelected = option.classList.contains('selected');
+
+                    artifactOptions.forEach(o => o.classList.remove('selected'));
+
+                    if (isSelected) {
+                        if (selectedArtifactTypeInput) selectedArtifactTypeInput.value = '';
+                        if (artifactDetailFields) artifactDetailFields.style.display = 'none';
+                    } else {
+                        option.classList.add('selected');
+                        if (selectedArtifactTypeInput) selectedArtifactTypeInput.value = type;
+                        if (artifactDetailFields) artifactDetailFields.style.display = 'block';
+                    }
+                });
+            });
+        }
+
+        // DOM-layer artifact modal functions (exposed globally for module script use)
+        window.showArtifactModal = showArtifactModal;
+        window.hideArtifactModal = hideArtifactModal;
+
+        function setupArtifactModalShow() {
+            // Expose to module scope
+            if (typeof window !== 'undefined') {
+                window.showArtifactModal = showArtifactModal;
+                window.hideArtifactModal = hideArtifactModal;
+            }
+        }
+
+        function showArtifactModal(artifactData, eventData) {
+            const modal = document.getElementById('artifact-modal');
+            if (!modal || !artifactData) return;
+
+            const ARTIFACT_TYPES = {
+                diploma: { name: '毕业证', emoji: '🎓', bgColor: '#C5A059' },
+                ticket: { name: '老车票', emoji: '🎫', bgColor: '#D2691E' },
+                key: { name: '钥匙', emoji: '🔑', bgColor: '#B8860B' },
+                letter: { name: '手写信', emoji: '✉️', bgColor: '#F5F5DC' }
+            };
+
+            const config = ARTIFACT_TYPES[artifactData.type];
+            if (!config) return;
+
+            const iconEl = document.getElementById('artifact-detail-icon');
+            if (iconEl) {
+                iconEl.textContent = config.emoji;
+                iconEl.style.background = `linear-gradient(135deg, ${config.bgColor}, #333)`;
+            }
+
+            const typeEl = document.getElementById('artifact-detail-type');
+            if (typeEl) typeEl.textContent = config.name;
+
+            const linkedEl = document.getElementById('artifact-detail-linked');
+            if (linkedEl) linkedEl.textContent = `关联记忆：${eventData?.title || '未命名'}`;
+
+            const photoEl = document.getElementById('artifact-detail-photo');
+            if (photoEl) {
+                if (artifactData.photoSrc) {
+                    photoEl.src = artifactData.photoSrc;
+                    photoEl.style.display = 'block';
+                } else {
+                    photoEl.style.display = 'none';
+                    photoEl.removeAttribute('src');
+                }
+            }
+
+            const storyEl = document.getElementById('artifact-detail-story');
+            if (storyEl) storyEl.textContent = artifactData.story || '—';
+
+            const locEl = document.getElementById('artifact-detail-location');
+            if (locEl) locEl.textContent = artifactData.location || '—';
+
+            modal.classList.add('active');
+        }
+
+        function hideArtifactModal() {
+            const modal = document.getElementById('artifact-modal');
+            if (modal) modal.classList.remove('active');
+        }
+
+        function setupArtifactModal() {
+            const closeBtn = document.getElementById('close-artifact-modal');
+            const modal = document.getElementById('artifact-modal');
+            if (closeBtn) {
+                closeBtn.addEventListener('click', hideArtifactModal);
+            }
+            window.addEventListener('click', (e) => {
+                if (e.target === modal) hideArtifactModal();
+            });
+        }
+
+        function setupFormSubmit() {
+            const form = document.getElementById('event-form');
+            if (!form) return;
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                const btn = document.getElementById('submit-btn');
+                const originalText = btn ? btn.innerText : '注入银河';
+                if (btn) btn.innerText = '提取特征中...';
+
+                const title = document.getElementById('event-title').value;
+                const date = document.getElementById('event-date').value;
+                const desc = document.getElementById('event-desc').value;
+                const fileInput = document.getElementById('event-file');
+
+                // Artifact data (works without Three.js)
+                const artifactTypeEl = document.getElementById('selected-artifact-type');
+                const artifactType = artifactTypeEl ? artifactTypeEl.value : '';
+                let artifactList = null;
+
+                const ARTIFACT_TYPES_KEYS = ['diploma', 'ticket', 'key', 'letter'];
+                if (artifactType && ARTIFACT_TYPES_KEYS.indexOf(artifactType) !== -1) {
+                    const artifactPhotoInput = document.getElementById('artifact-photo');
+                    const artifactStory = (document.getElementById('artifact-story') || {}).value || '';
+                    const artifactLocation = (document.getElementById('artifact-location') || {}).value || '';
+
+                    let artifactPhotoSrc = null;
+                    if (artifactPhotoInput && artifactPhotoInput.files && artifactPhotoInput.files[0]) {
+                        artifactPhotoSrc = URL.createObjectURL(artifactPhotoInput.files[0]);
+                    }
+
+                    artifactList = [{
+                        type: artifactType,
+                        photoSrc: artifactPhotoSrc,
+                        story: artifactStory.trim(),
+                        location: artifactLocation.trim()
+                    }];
+                }
+
+                const finalizeWithGalaxy = (colorObj) => {
+                    const api = window.__LifeGalaxy;
+                    if (!api || !api.addLifeEvent) {
+                        // Graceful fallback: just close modal
+                        console.warn('3D engine not ready, event stored in memory only');
+                        cleanup();
+                        return;
+                    }
+                    const data = {
+                        title, date, desc,
+                        mediaType: isVideo ? 'video' : 'image',
+                        src: mediaSrc,
+                        artifacts: artifactList
+                    };
+                    api.addLifeEvent(data, colorObj, artifactList);
+                    if (api.STATE) api.STATE.events.push(data);
+                    cleanup();
+                };
+
+                const cleanup = () => {
+                    const modal = document.getElementById('add-modal');
+                    if (modal) modal.classList.remove('active');
+                    if (btn) btn.innerText = originalText;
+                    form.reset();
+                    const selInput = document.getElementById('selected-artifact-type');
+                    if (selInput) selInput.value = '';
+                    const fields = document.getElementById('artifact-detail-fields');
+                    if (fields) fields.style.display = 'none';
+                    document.querySelectorAll('.artifact-option').forEach(o => o.classList.remove('selected'));
+                };
+
+                if (fileInput && fileInput.files && fileInput.files[0]) {
+                    const file = fileInput.files[0];
+                    const isVideo = file.type.startsWith('video');
+                    const mediaSrc = URL.createObjectURL(file);
+                    window.__lastMedia = { isVideo, mediaSrc };
+
+                    if (isVideo) {
+                        const api = window.__LifeGalaxy;
+                        const neonCyan = (api && api.THREE) ? new api.THREE.Color('#00F0FF') : '#00F0FF';
+                        finalizeWithGalaxy(neonCyan);
+                    } else {
+                        const img = new Image();
+                        img.onload = () => {
+                            let color = '#FFD700';
+                            const api = window.__LifeGalaxy;
+                            if (api && api.extractColor) {
+                                color = api.extractColor(img);
+                            }
+                            const colorObj = (api && api.THREE) ? new api.THREE.Color(color) : color;
+                            finalizeWithGalaxy(colorObj);
+                        };
+                        img.onerror = () => {
+                            const api = window.__LifeGalaxy;
+                            const fallback = (api && api.THREE) ? new api.THREE.Color('#FFD700') : '#FFD700';
+                            finalizeWithGalaxy(fallback);
+                        };
+                        img.src = mediaSrc;
+                    }
+                }
+            });
+        }
+
+        // Also make showEventCard & hideEventCard work from DOM side
+        const _origShowCard = window.showEventCard;
+
+    })();
     </script>
 </body>
 
